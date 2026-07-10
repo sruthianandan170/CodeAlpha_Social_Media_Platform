@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Create Post</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+🐦 TwinBirds
+
+</div>
+
+<div class="menu">
+
+<a href="/home">Home</a>
+
+<a href="/feed">Feed</a>
+
+<a href="/profile">Profile</a>
+
+<a href="/my-posts">My Posts</a>
+
+<a href="/logout">Logout</a>
+
+</div>
+
+</nav>
+<div class="form-container">
+
+<h1>Create New Post</h1>
+
+<form
+
+action="/create-post"
+
+method="POST"
+
+enctype="multipart/form-data"
+
+>
+
+<textarea
+
+name="caption"
+
+placeholder="What's on your mind?"
+
+required
+
+></textarea>
+
+<br><br>
+
+<input
+
+type="file"
+
+name="image"
+
+accept="image/*"
+
+>
+
+<br><br>
+
+<button>
+
+Post
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

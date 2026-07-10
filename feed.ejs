@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Feed</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+
+🐦 TwinBirds
+
+</div>
+
+<div class="menu">
+
+<a href="/home">Home</a>
+
+<a href="/feed">Feed</a>
+
+<a href="/profile">Profile</a>
+
+<a href="/my-posts">My Posts</a>
+
+<a href="/logout">Logout</a>
+
+</div>
+
+</nav>
+<div class="container">
+
+    <h1>Social Feed</h1>
+
+    <% if(posts.length===0){ %>
+
+        <h3>No posts available.</h3>
+
+    <% } %>
+
+    <% posts.forEach(function(post){ %>
+
+        <div class="post-card">
+
+            <h2><%= post.user ? post.user.name : "Unknown User" %></h2>
+
+            <p><%= post.caption %></p>
+
+            <% if(post.image){ %>
+
+                <img src="<%= post.image %>" class="post-image">
+
+            <% } %>
+
+            <%
+const liked = post.likes &&
+post.likes.some(
+    like => like.toString() === currentUser._id.toString()
+);
+%>
+
+<div class="post-actions">
+
+    <a href="/like/<%= post._id %>">
+
+        <button class="like-btn">
+
+            <%= liked ? "❤️ Liked" : "🤍 Like" %>
+
+            (<%= post.likes.length %>)
+
+        </button>
+
+    </a>
+
+    <p>
+
+        ❤️ <%= post.likes.length %> People Liked this Post
+
+    </p>
+
+</div>
+
+            <% if(currentUser && post.user && currentUser._id.toString() !== post.user._id.toString()){ %>
+
+                <a href="/follow/<%= post.user._id %>">
+                    <button>Follow</button>
+                </a>
+
+                <a href="/unfollow/<%= post.user._id %>">
+                    <button>Unfollow</button>
+                </a>
+
+            <% } %>
+
+        </div>
+
+        <br>
+
+    <% }) %>
+
+</div>
+
+</body>
+</html>

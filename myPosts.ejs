@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Posts</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+<nav class="navbar">
+
+<div class="logo">
+
+🐦 TwinBirds
+
+</div>
+
+<div class="menu">
+
+<a href="/home">Home</a>
+
+<a href="/feed">Feed</a>
+
+<a href="/profile">Profile</a>
+
+<a href="/my-posts">My Posts</a>
+
+<a href="/logout">Logout</a>
+
+</div>
+
+</nav>
+
+<h1 align="center">
+
+My Posts
+
+</h1>
+<% posts.forEach(post=>{ %>
+
+<div class="post-card">
+
+<% if(post.image!=""){ %>
+
+<img src="<%=post.image%>" class="post-image">
+
+<% } %>
+
+<h3>
+
+<%=post.caption%>
+
+</h3>
+
+<p>
+
+<%=post.createdAt.toDateString()%>
+
+</p>
+
+<p>
+
+❤️ <%=post.likes.length%> Likes
+
+</p>
+
+<a href="/like/<%=post._id%>">
+
+<button>
+
+Like
+
+</button>
+
+</a>
+
+<a href="/delete-post/<%=post._id%>">
+
+<button>
+
+Delete
+
+</button>
+
+</a>
+
+<form
+
+action="/comment/<%=post._id%>"
+
+method="POST"
+
+>
+
+<input
+
+type="text"
+
+name="text"
+
+placeholder="Write a comment"
+
+required
+
+>
+
+<button>
+
+Comment
+
+</button>
+
+</form>
+
+<hr>
+
+<% comments.forEach(comment=>{ %>
+
+<% if(comment.post.toString()==post._id.toString()){ %>
+
+<p>
+
+<b>
+
+<%=comment.user.name%>
+
+</b>
+
+:
+
+<%=comment.text%>
+
+</p>
+
+<% } %>
+
+<% }) %>
+
+</div>
+
+<% }) %>
+
+</body>
+
+</html>

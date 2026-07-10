@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TwinBirds - Home</title>
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        🐦 TwinBirds
+    </div>
+
+    <div class="menu">
+
+        <a href="/home">Home</a>
+        <a href="/feed">Feed</a>
+        <a href="/profile">Profile</a>
+        <a href="/my-posts">My Posts</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</nav>
+
+<div class="container">
+
+    <div class="welcome-card">
+
+        <div class="avatar">
+
+    <div class="default-avatar">
+          👩🏻
+    </div>
+
+</div>
+
+        <h1>Welcome, <%= user.name %></h1>
+
+        <p><%= user.email %></p>
+
+    </div>
+
+    <div class="action-card">
+
+        <h2>Quick Actions</h2>
+
+        <a href="/create-post">
+            <button>Create Post</button>
+        </a>
+
+        <a href="/my-posts">
+            <button>My Posts</button>
+        </a>
+
+        <a href="/feed">
+            <button>Social Feed</button>
+        </a>
+
+        <a href="/profile">
+            <button>View Profile</button>
+        </a>
+
+        <a href="/edit-profile">
+            <button>Edit Profile</button>
+        </a>
+
+    </div>
+
+</div>
+
+<footer>
+
+© 2026 TwinBirds Social Media Platform
+
+</footer>
+
+</body>
+
+</html>
